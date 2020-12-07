@@ -8,7 +8,7 @@ namespace Gamekit3D
 {
     [RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(Animator))]
-    public class PlayerController : MonoBehaviour, IMessageReceiver
+    public class PlayerController : MonoBehaviour, IMessageReceiver, IConvertGameObjectToEntity
     {
         protected static PlayerController s_Instance;
         public static PlayerController instance { get { return s_Instance; } }
@@ -190,6 +190,27 @@ namespace Gamekit3D
             }
         }
 
+        public bool m_Attacking;
+        IEnumerator DoAttack()
+        {
+            m_Attacking = true;
+            // Play animation
+            m_Animator.SetTrigger(m_HashMeleeAttack);
+            Debug.Log("Start Coroutine");
+            yield return new WaitForSeconds(0.1f);
+            // Look for hit
+            while (IsWeaponEquiped())
+            {
+                yield return null;
+            }
+
+            Debug.Log("End Coroutine");
+            m_Attacking = false;
+
+            m_Animator.ResetTrigger(m_HashMeleeAttack);
+
+        }
+
         // Called automatically by Unity once every Physics step.
         void FixedUpdate()
         {
@@ -202,8 +223,8 @@ namespace Gamekit3D
             m_Animator.SetFloat(m_HashStateTime, Mathf.Repeat(m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime, 1f));
             m_Animator.ResetTrigger(m_HashMeleeAttack);
 
-            if (m_Input.Attack && canAttack)
-                m_Animator.SetTrigger(m_HashMeleeAttack);
+            if (m_Input.Attack && canAttack && !m_Attacking)
+                StartCoroutine(DoAttack());
 
             SetAim(m_Input.AimProjectile);
             Vector2 moveInput = Vector2.zero;
@@ -711,5 +732,9 @@ namespace Gamekit3D
             m_Damageable.isInvulnerable = true;
         }
 
+        public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
+        {
+            this.m_Entity = entity;
+        }
     }
 }

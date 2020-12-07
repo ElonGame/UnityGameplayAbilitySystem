@@ -23,7 +23,7 @@ namespace GameplayAbilitySystem.AbilitySystem
         [Header("Effect Specification")]
         public DurationPolicy Duration;
         public Modifiers<TAttributeModifierEnum, TAttributeModifierOperatorEnum>[] AttributeModifiers;
-        public PeriodPolicy Period;
+        //public PeriodPolicy Period;
 
         [Header("Effect Tags")]
         public GameplayEffectTags EffectTags;

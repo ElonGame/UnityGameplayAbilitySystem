@@ -1,5 +1,190 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &20700526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 20700527}
+  - component: {fileID: 20700529}
+  - component: {fileID: 20700528}
+  m_Layer: 9
+  m_Name: Ellen_Body (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &20700527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20700526}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4035643436854338}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &20700529
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20700526}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 4294967295
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 46ba9be6c4545f148aeea969a1f0bc1b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300120, guid: a5674d01884853d4e8f2386a171e14d9, type: 3}
+  m_Bones:
+  - {fileID: 4138286693950810}
+  - {fileID: 4568527328964788}
+  - {fileID: 4489833791415404}
+  - {fileID: 4651118668068072}
+  - {fileID: 4035123036625514}
+  - {fileID: 4834264288465522}
+  - {fileID: 4833100420293094}
+  - {fileID: 4474444563374086}
+  - {fileID: 4336569662987990}
+  - {fileID: 4555481415365574}
+  - {fileID: 4496811128040770}
+  - {fileID: 4764964247380096}
+  - {fileID: 4055332720890512}
+  - {fileID: 4659761446980250}
+  - {fileID: 4243750191692554}
+  - {fileID: 4917869328273112}
+  - {fileID: 4601267469612528}
+  - {fileID: 4223678323841694}
+  - {fileID: 4899141660405554}
+  - {fileID: 4779286048653876}
+  - {fileID: 4256448493186006}
+  - {fileID: 4473088649674292}
+  - {fileID: 4898328116958182}
+  - {fileID: 4668492569542358}
+  - {fileID: 4330141941053234}
+  - {fileID: 4184161518232498}
+  - {fileID: 4831414134210522}
+  - {fileID: 4451351151981422}
+  - {fileID: 4064408907936094}
+  - {fileID: 4835866999946456}
+  - {fileID: 4498067853548808}
+  - {fileID: 4928685904473490}
+  - {fileID: 4617561795284022}
+  - {fileID: 4249533323789002}
+  - {fileID: 4206357533068184}
+  - {fileID: 4602199311689338}
+  - {fileID: 4950685776012858}
+  - {fileID: 4334967465552546}
+  - {fileID: 4074833457699550}
+  - {fileID: 4248630998348012}
+  - {fileID: 4602526690610586}
+  - {fileID: 4338399403868054}
+  - {fileID: 4279740804943952}
+  - {fileID: 4448110936453782}
+  - {fileID: 4218114649738472}
+  - {fileID: 4276317472435340}
+  - {fileID: 4716468490349786}
+  - {fileID: 4622574277761958}
+  - {fileID: 4570943454868322}
+  - {fileID: 4795634051248760}
+  - {fileID: 4280051538935294}
+  - {fileID: 4179193269180628}
+  - {fileID: 4565395375233566}
+  - {fileID: 4720497352182772}
+  - {fileID: 4776916025083450}
+  - {fileID: 4752164189494876}
+  - {fileID: 4847016747143152}
+  - {fileID: 4484737362010850}
+  - {fileID: 4435662703021886}
+  - {fileID: 4683866688696682}
+  - {fileID: 4308951537535800}
+  - {fileID: 4892719434670366}
+  - {fileID: 4973296828397512}
+  - {fileID: 4810446170847968}
+  - {fileID: 4049710024556396}
+  - {fileID: 4125414341869428}
+  - {fileID: 4793333642254808}
+  - {fileID: 4869113195919032}
+  - {fileID: 4749388956623004}
+  - {fileID: 4754187628398682}
+  - {fileID: 4098881771796862}
+  - {fileID: 4760081900917324}
+  - {fileID: 4093578520919226}
+  - {fileID: 4512232786380938}
+  - {fileID: 4491050696644944}
+  - {fileID: 4037018734086846}
+  - {fileID: 4150901788852694}
+  - {fileID: 4342380356729268}
+  - {fileID: 4678274700558574}
+  - {fileID: 4116297934751376}
+  - {fileID: 4635301086748072}
+  - {fileID: 4254214406191954}
+  - {fileID: 4477319072446190}
+  - {fileID: 4044308278877820}
+  - {fileID: 4282003401737126}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 4138286693950810}
+  m_AABB:
+    m_Center: {x: 0.0068225563, y: 0, z: -0.009298004}
+    m_Extent: {x: 0.87855244, y: 0.7656409, z: 0.25213572}
+  m_DirtyAABB: 0
+--- !u!114 &20700528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20700526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73367497fed37b140a366d89e8cc6bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectTime: 1
+  EllenRespawnMaterials:
+  - {fileID: 2100000, guid: cd5081c8394c64043959b5343ab41b48, type: 2}
+  respawnParticles: {fileID: 1116171338045874}
 --- !u!1 &719031880
 GameObject:
   m_ObjectHideFlags: 0
@@ -16509,9 +16694,10 @@ GameObject:
   - component: {fileID: 114579421511091938}
   - component: {fileID: 114166992771378430}
   - component: {fileID: 2034418528}
-  - component: {fileID: 2696846112553908540}
   - component: {fileID: 5248765774416813430}
   - component: {fileID: 4080541713919349467}
+  - component: {fileID: 4108289652117432101}
+  - component: {fileID: 2696846112553908540}
   m_Layer: 9
   m_Name: Ellen
   m_TagString: Untagged
@@ -16542,6 +16728,7 @@ Transform:
   - {fileID: 4031617287498508}
   - {fileID: 1359984393}
   - {fileID: 1117583085}
+  - {fileID: 20700527}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16850,19 +17037,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &2696846112553908540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991219941496362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea7d7495833204790ba1d3a8755397f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ConversionMode: 1
 --- !u!114 &5248765774416813430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16899,6 +17073,35 @@ MonoBehaviour:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
+--- !u!114 &4108289652117432101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991219941496362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ef75bf373bdc646adcaf281c92b9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrantedAbilities:
+  - {fileID: 11400000, guid: 2f5e5c5b57f9d24419ead6fb1306ac07, type: 2}
+  - {fileID: 11400000, guid: 92c9886f79952d4429b9f648affa3f6b, type: 2}
+  - {fileID: 11400000, guid: 67f9b04bfa730e8488c80451218970d6, type: 2}
+--- !u!114 &2696846112553908540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991219941496362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7d7495833204790ba1d3a8755397f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConversionMode: 1
 --- !u!1 &1991646998098166
 GameObject:
   m_ObjectHideFlags: 0

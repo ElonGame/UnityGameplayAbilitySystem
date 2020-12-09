@@ -20,6 +20,11 @@ namespace GameplayAbilitySystem.AbilitySystem
             Registry.Add(Id.Tag, entity);
         }
 
+        public override ComponentType GetComponentType()
+        {
+            return ComponentType.ReadOnly<Component>();
+        }
+
         public struct Component : IComponentData
         {
             public GameplayTag Tag;

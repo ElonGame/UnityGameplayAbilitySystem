@@ -23,6 +23,11 @@ namespace GameplayAbilitySystem.AbilitySystem
 
         }
 
+        public override ComponentType GetComponentType()
+        {
+            return default(ComponentType);
+        }
+
         [InternalBufferCapacity(4)]
         public struct Component : IBufferElementData
         {

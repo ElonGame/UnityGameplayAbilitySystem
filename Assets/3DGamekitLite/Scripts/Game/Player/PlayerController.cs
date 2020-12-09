@@ -197,7 +197,12 @@ namespace Gamekit3D
             // Play animation
             m_Animator.SetTrigger(m_HashMeleeAttack);
             Debug.Log("Start Coroutine");
-            yield return new WaitForSeconds(0.1f);
+
+            // Wait for weapon to be equipped
+            while (!IsWeaponEquiped())
+            {
+                yield return null;
+            }
             // Look for hit
             while (IsWeaponEquiped())
             {
@@ -206,8 +211,6 @@ namespace Gamekit3D
 
             Debug.Log("End Coroutine");
             m_Attacking = false;
-
-            m_Animator.ResetTrigger(m_HashMeleeAttack);
 
         }
 
@@ -224,7 +227,10 @@ namespace Gamekit3D
             m_Animator.ResetTrigger(m_HashMeleeAttack);
 
             if (m_Input.Attack && canAttack && !m_Attacking)
+            {
+                StopCoroutine(DoAttack());
                 StartCoroutine(DoAttack());
+            }
 
             SetAim(m_Input.AimProjectile);
             Vector2 moveInput = Vector2.zero;

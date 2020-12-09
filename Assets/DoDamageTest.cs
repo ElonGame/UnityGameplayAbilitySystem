@@ -1,8 +1,13 @@
+using GameplayAbilitySystem.AbilitySystem;
+using GameplayAbilitySystem.GameplayTags;
+using Unity.Entities;
 using UnityEngine;
 
 public class DoDamageTest : MonoBehaviour
 {
     public MyPlayerAttributeAuthoringScript Character;
+    public AbilityRegistryScriptableObject AbilityRegistery;
+    public GameplayTagScriptableObject Tag;
     public float AddValue;
     public bool Execute;
 
@@ -10,6 +15,8 @@ public class DoDamageTest : MonoBehaviour
     {
         if (Execute)
         {
+            var abilityEntity = AbilityRegistery.Get(Tag.Tag);
+
 
             // var dstManager = Character.dstManager;
             // var archetype = dstManager.CreateArchetype(new MySimpleGameplayEffectSpec().GetComponents());

@@ -19,7 +19,10 @@ namespace GameplayAbilitySystem.AbilitySystem
                 buffer.Add(Modifiers[i]);
             }
         }
-
+        public override ComponentType GetComponentType()
+        {
+            return default(ComponentType);
+        }
         [Serializable]
         public struct Component : IBufferElementData
         {

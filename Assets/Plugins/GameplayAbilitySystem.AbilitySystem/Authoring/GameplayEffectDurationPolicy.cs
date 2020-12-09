@@ -19,6 +19,10 @@ namespace GameplayAbilitySystem.AbilitySystem
                 Duration = Duration
             });
         }
+        public override ComponentType GetComponentType()
+        {
+            return default(ComponentType);
+        }
 
         public struct Component : IComponentData
         {

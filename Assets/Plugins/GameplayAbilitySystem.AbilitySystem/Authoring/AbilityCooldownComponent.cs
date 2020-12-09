@@ -16,6 +16,12 @@ namespace GameplayAbilitySystem.AbilitySystem
                 Id = GameplayEffect.Tag
             });
         }
+
+        public override ComponentType GetComponentType()
+        {
+            return ComponentType.ReadOnly<Component>();
+        }
+
         public struct Component : IComponentData
         {
             public GameplayTag Id;

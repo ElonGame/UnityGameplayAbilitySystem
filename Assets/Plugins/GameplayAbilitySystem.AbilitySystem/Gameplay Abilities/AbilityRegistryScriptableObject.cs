@@ -1,7 +1,3 @@
-using System.Collections.Generic;
-using GameplayAbilitySystem.GameplayTags;
-using Unity.Collections;
-using Unity.Entities;
 using UnityEngine;
 
 namespace GameplayAbilitySystem.AbilitySystem

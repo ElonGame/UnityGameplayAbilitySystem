@@ -21,6 +21,11 @@ namespace GameplayAbilitySystem.AbilitySystem
             });
         }
 
+        public override ComponentType GetComponentType()
+        {
+            return default(ComponentType);
+        }
+
         public class Component : IComponentData
         {
             public string Name;

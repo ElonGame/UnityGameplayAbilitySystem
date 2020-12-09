@@ -10,5 +10,7 @@ namespace GameplayAbilitySystem.AbilitySystem
         {
             CreateSpec(entity, dstManager);
         }
+
+        public abstract ComponentType GetComponentType();
     }
 }

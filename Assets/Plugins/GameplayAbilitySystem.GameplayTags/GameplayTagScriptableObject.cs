@@ -60,6 +60,7 @@ namespace GameplayAbilitySystem.GameplayTags
                 // Mark it dirty so Unity saves it do disk
                 EditorUtility.SetDirty(scriptableObject);
             }
+
         }
     }
 

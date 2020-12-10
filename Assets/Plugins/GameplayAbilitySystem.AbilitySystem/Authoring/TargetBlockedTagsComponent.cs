@@ -2,9 +2,9 @@ using GameplayAbilitySystem.AbilitySystem;
 using Unity.Entities;
 using UnityEngine;
 
-[assembly: RegisterGenericComponentType(typeof(AbilityTagsDefinitionComponent<ITargetBlockedTags>.Component))]
+[assembly: RegisterGenericComponentType(typeof(AbilitySystemTagsDefinitionComponent<ITargetBlockedTags>.Component))]
 namespace GameplayAbilitySystem.AbilitySystem
 {
     public interface ITargetBlockedTags : IAbilityTagDefinition { }
-    public class TargetBlockedTagsComponent : AbilityTagsDefinitionComponent<ITargetBlockedTags> { }
+    public class TargetBlockedTagsComponent : AbilitySystemTagsDefinitionComponent<ITargetBlockedTags> { }
 }

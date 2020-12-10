@@ -24,6 +24,6 @@ namespace GameplayAbilitySystem.AbilitySystem
         {
             public GameplayTag Id;
         }
-
     }
+
 }

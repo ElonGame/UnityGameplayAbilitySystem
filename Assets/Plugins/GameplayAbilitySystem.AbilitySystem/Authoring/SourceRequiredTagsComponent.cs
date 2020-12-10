@@ -2,9 +2,9 @@ using GameplayAbilitySystem.AbilitySystem;
 using Unity.Entities;
 using UnityEngine;
 
-[assembly: RegisterGenericComponentType(typeof(AbilityTagsDefinitionComponent<ISourceRequiredTags>.Component))]
+[assembly: RegisterGenericComponentType(typeof(AbilitySystemTagsDefinitionComponent<ISourceRequiredTags>.Component))]
 namespace GameplayAbilitySystem.AbilitySystem
 {
     public interface ISourceRequiredTags : IAbilityTagDefinition { }
-    public class SourceRequiredTagsComponent : AbilityTagsDefinitionComponent<ISourceRequiredTags> { }
+    public class SourceRequiredTagsComponent : AbilitySystemTagsDefinitionComponent<ISourceRequiredTags> { }
 }

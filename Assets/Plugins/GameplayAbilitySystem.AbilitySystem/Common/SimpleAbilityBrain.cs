@@ -20,6 +20,7 @@ namespace GameplayAbilitySystem.AbilitySystem
 
         protected override void OnUpdate()
         {
+
         }
     }
 }

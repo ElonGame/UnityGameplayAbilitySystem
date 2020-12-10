@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: System.Ability.Brain.Simple
   m_EditorClassIdentifier: 
   Tag:
-    L0: 2
+    L0: 3
     L1: 4
-    L2: 5
+    L2: 6
     L3: 3

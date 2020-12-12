@@ -1,12 +1,13 @@
 using System;
 using System.Runtime.CompilerServices;
 using Unity.Entities;
+using GameplayAbilitySystem.AttributeSystem;
 
 namespace MyGameplayAbilitySystem
 {
 
     [Serializable]
-    public struct MyPlayerAttributes : IComponentData
+    public struct MyPlayerAttributes : IComponentData, IAttributeDefinition
     {
         public float Health;
         public float MaxHealth;

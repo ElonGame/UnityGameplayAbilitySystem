@@ -8,6 +8,9 @@ public class MyPlayerAttributeAuthoringScript : MonoBehaviour, IConvertGameObjec
     public EntityManager dstManager { get; private set; }
     public Entity attributeEntity { get; private set; }
 
+    [SerializeField]
+    private MyPlayerAttributes defaultAttributes;
+
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
         attributeEntity = InitialiseAttributeEntity(dstManager);
@@ -17,9 +20,21 @@ public class MyPlayerAttributeAuthoringScript : MonoBehaviour, IConvertGameObjec
     public Entity InitialiseAttributeEntity(EntityManager dstManager)
     {
         var damagable = GetComponent<Damageable>();
-        var defaultAttributes = new MyPlayerAttributes() { Health = damagable.maxHitPoints, MaxHealth = damagable.maxHitPoints };
-        var _attributeEntity = MyAttributeUpdateSystem.CreatePlayerEntity(dstManager, new AttributeValues() { BaseValue = defaultAttributes });
+        var _attributeEntity = MyAttributeUpdateSystem.CreatePlayerEntity(dstManager, new MyAttributeValues() { BaseValue = defaultAttributes });
         dstManager.SetName(_attributeEntity, $"{this.gameObject.name} - Attributes");
         return _attributeEntity;
+    }
+}
+
+public abstract class AbilitySystemComponent : MonoBehaviour, IConvertGameObjectToEntity
+{
+    public Entity ActorAttributeEntity;
+    public Entity AbilitySystemActorEntity;
+    protected abstract Entity RegisterActorAttributeEntity();
+
+    public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
+    {
+        AbilitySystemActorEntity = entity;
+        ActorAttributeEntity = RegisterActorAttributeEntity();
     }
 }

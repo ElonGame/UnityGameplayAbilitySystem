@@ -7,7 +7,7 @@ using Unity.Mathematics;
 namespace MyGameplayAbilitySystem
 {
     [UpdateInGroup(typeof(AttributeUpdateSystemGroup))]
-    public class MyAttributeUpdateSystem : AttributeUpdateSystem<AttributeValues, MyInstantAttributeModifierValues, MyDurationalAttributeModifierValues, MyPlayerAttributesJob>
+    public class MyAttributeUpdateSystem : AttributeUpdateSystem<MyAttributeValues, MyInstantAttributeModifierValues, MyDurationalAttributeModifierValues, MyPlayerAttributesJob>
     {
         public static Entity CreateGameplayEffect(EntityManager dstManager, GameplayEffectContextComponent context, MyDurationalGameplayAttributeModifier modifier)
         {
@@ -31,7 +31,7 @@ namespace MyGameplayAbilitySystem
 
             for (var i = 0; i < 100; i++)
             {
-                var defaultAttributes = new AttributeValues()
+                var defaultAttributes = new MyAttributeValues()
                 {
                     BaseValue = new MyPlayerAttributes() { Health = 100, MaxHealth = 100, Mana = 10, MaxMana = 10, Speed = 5 }
                 };
@@ -60,9 +60,9 @@ namespace MyGameplayAbilitySystem
         }
     }
 
-    public struct MyPlayerAttributesJob : IAttributeExecute<AttributeValues, MyInstantAttributeModifierValues, MyDurationalAttributeModifierValues>
+    public struct MyPlayerAttributesJob : IAttributeExecute<MyAttributeValues, MyInstantAttributeModifierValues, MyDurationalAttributeModifierValues>
     {
-        public void CalculateDurational(NativeArray<AttributeValues> attributeValuesChunk, NativeArray<MyDurationalAttributeModifierValues> attributeModifiersChunk)
+        public void CalculateDurational(NativeArray<MyAttributeValues> attributeValuesChunk, NativeArray<MyDurationalAttributeModifierValues> attributeModifiersChunk)
         {
             for (var i = 0; i < attributeValuesChunk.Length; i++)
             {
@@ -77,7 +77,7 @@ namespace MyGameplayAbilitySystem
                 attributeValuesChunk[i] = attributeValues;
             }
         }
-        public void CalculateInstant(NativeArray<AttributeValues> attributeValuesChunk, NativeArray<MyInstantAttributeModifierValues> attributeModifiersChunk)
+        public void CalculateInstant(NativeArray<MyAttributeValues> attributeValuesChunk, NativeArray<MyInstantAttributeModifierValues> attributeModifiersChunk)
         {
             for (var i = 0; i < attributeValuesChunk.Length; i++)
             {

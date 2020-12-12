@@ -25,7 +25,7 @@ namespace GameplayAbilitySystem.AbilitySystem
 
         public override ComponentType GetComponentType()
         {
-            return default(ComponentType);
+            return ComponentType.ReadOnly<Component>();
         }
 
         [InternalBufferCapacity(4)]

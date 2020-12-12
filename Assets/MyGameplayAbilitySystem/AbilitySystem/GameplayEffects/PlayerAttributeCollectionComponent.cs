@@ -3,6 +3,6 @@ using MyGameplayAbilitySystem;
 
 public struct PlayerAttributeCollectionComponent : IComponentData
 {
-    public AttributeValues Source;
-    public AttributeValues Target;
+    public MyAttributeValues Source;
+    public MyAttributeValues Target;
 }

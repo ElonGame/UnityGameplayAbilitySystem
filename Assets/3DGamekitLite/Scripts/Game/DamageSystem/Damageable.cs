@@ -63,7 +63,7 @@ namespace Gamekit3D
 
         void Update()
         {
-            m_currentHitPoints = (int)(dstManager.GetComponentData<AttributeValues>(this.attributeEntity).CurrentValue[EMyPlayerAttribute.Health]);
+            m_currentHitPoints = (int)(dstManager.GetComponentData<MyAttributeValues>(this.attributeEntity).CurrentValue[EMyPlayerAttribute.Health]);
             if (isInvulnerable)
             {
                 m_timeSinceLastHit += Time.deltaTime;

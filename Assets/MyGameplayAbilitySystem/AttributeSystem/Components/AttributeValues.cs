@@ -5,9 +5,10 @@ using Unity.Entities;
 namespace MyGameplayAbilitySystem
 {
     [Serializable]
-    public struct AttributeValues : IAttributeData, IComponentData
+    public struct MyAttributeValues : IAttributeData, IComponentData
     {
         public MyPlayerAttributes BaseValue;
         public MyPlayerAttributes CurrentValue;
     }
+
 }

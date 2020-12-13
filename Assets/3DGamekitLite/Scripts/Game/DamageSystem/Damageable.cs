@@ -53,8 +53,8 @@ namespace Gamekit3D
             MyPlayerAttributeAuthoringScript attributeAuthoringScript = GetComponent<MyPlayerAttributeAuthoringScript>();
             // if (attributeAuthoringScript != null)
             // {
-            attributeEntity = GetComponent<MyPlayerAttributeAuthoringScript>().attributeEntity;
-            this.dstManager = GetComponent<MyPlayerAttributeAuthoringScript>().dstManager;
+            attributeEntity = GetComponent<MyPlayerAttributeAuthoringScript>().ActorAttributeEntity;
+            this.dstManager = World.DefaultGameObjectInjectionWorld.EntityManager;
             // }
 
             ResetDamage();

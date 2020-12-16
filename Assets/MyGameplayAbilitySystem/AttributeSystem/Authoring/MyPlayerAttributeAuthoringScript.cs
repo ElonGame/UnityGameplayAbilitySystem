@@ -16,5 +16,3 @@ public class MyPlayerAttributeAuthoringScript : PlayerAttributeAuthoringScript
         return _attributeEntity;
     }
 }
-
-

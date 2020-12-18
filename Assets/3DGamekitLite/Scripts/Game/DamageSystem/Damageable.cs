@@ -11,7 +11,7 @@ using GameplayAbilitySystem.AttributeSystem;
 
 namespace Gamekit3D
 {
-    public partial class Damageable : MonoBehaviour
+    public partial class Damageable : MonoBehaviour, IConvertGameObjectToEntity
     {
 
         public int maxHitPoints;
@@ -47,6 +47,7 @@ namespace Gamekit3D
         private bool wasDamaged = false;
 
         System.Action schedule;
+        private Entity abilitySystemEntity;
 
         void Start()
         {
@@ -106,6 +107,11 @@ namespace Gamekit3D
 
         }
 
+        public void UpdateAttributeEntity(EntityManager dstManager, Entity abilitySystemActor, Entity attributeEntity)
+        {
+            dstManager.SetComponentData(abilitySystemActor, new PlayerAttributeAuthoringScript.Component() { ActorAttributeEntity = attributeEntity });
+        }
+
         public void ResetDamage()
         {
 
@@ -114,6 +120,7 @@ namespace Gamekit3D
             var newAttributeEntity = attributeAuthoringScript.InitialiseAttributeEntity(dstManager);
             dstManager.DestroyEntity(this.attributeEntity);
             this.attributeEntity = newAttributeEntity;
+            UpdateAttributeEntity(dstManager, abilitySystemEntity, newAttributeEntity);
             isInvulnerable = false;
             m_timeSinceLastHit = 0.0f;
             OnResetDamage.Invoke();
@@ -206,6 +213,11 @@ namespace Gamekit3D
             UnityEditor.Handles.color = new Color(1.0f, 0.0f, 0.0f, 0.5f);
             forward = Quaternion.AngleAxis(-hitAngle * 0.5f, transform.up) * forward;
             UnityEditor.Handles.DrawSolidArc(transform.position, transform.up, forward, hitAngle, 1.0f);
+        }
+
+        public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
+        {
+            abilitySystemEntity = entity;
         }
     }
 #endif

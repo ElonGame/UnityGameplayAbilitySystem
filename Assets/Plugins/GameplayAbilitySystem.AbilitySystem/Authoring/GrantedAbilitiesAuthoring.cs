@@ -3,6 +3,7 @@ using UnityEngine;
 using Unity.Entities;
 using GameplayAbilitySystem.GameplayTags;
 using System.Collections.Generic;
+using GameplayAbilitySystem.AttributeSystem;
 
 namespace GameplayAbilitySystem.AbilitySystem
 {

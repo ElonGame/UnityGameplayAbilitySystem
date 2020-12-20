@@ -16698,6 +16698,7 @@ GameObject:
   - component: {fileID: 4080541713919349467}
   - component: {fileID: 4108289652117432101}
   - component: {fileID: 2696846112553908540}
+  - component: {fileID: 2764942780363686390}
   m_Layer: 9
   m_Name: Ellen
   m_TagString: Untagged
@@ -16885,6 +16886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5847bd25143b24d9d4b26b0ae56f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AbilityRegistry: {fileID: 11400000, guid: a239cb23875888e47b6c1a239e1461fc, type: 2}
   playerControllerInputBlocked: 0
   mouseSensitivity: 0.5
 --- !u!114 &114579421511091938
@@ -16917,6 +16919,7 @@ MonoBehaviour:
   emoteDeathPlayer: {fileID: 114941003919540504}
   emoteAttackPlayer: {fileID: 114760947911017218}
   emoteJumpPlayer: {fileID: 114482031319434234}
+  m_Attacking: 0
 --- !u!114 &114166992771378430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17049,6 +17052,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea4091bf6484aa4cbd25a6aebc559a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultAttributes:
+    Health: 0
+    MaxHealth: 0
+    Mana: 0
+    MaxMana: 0
+    Speed: 0
+    PhysicalAttackDamage: 0
+    MagicAttackDamage: 0
+    PhysicalDefense: 0
+    MagicDefense: 0
 --- !u!114 &4080541713919349467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17102,6 +17115,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConversionMode: 1
+--- !u!114 &2764942780363686390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991219941496362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e08bf355f393c84b8130a15a42c9a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1991646998098166
 GameObject:
   m_ObjectHideFlags: 0

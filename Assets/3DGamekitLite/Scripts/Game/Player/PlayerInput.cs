@@ -4,6 +4,10 @@ using System.Collections;
 using Gamekit3D;
 using static PlayerInputs;
 using Cinemachine;
+using GameplayAbilitySystem.AbilitySystem;
+using GameplayAbilitySystem.GameplayTags;
+using GameplayAbilitySystem.AttributeSystem;
+using Unity.Entities;
 
 public class PlayerInput : MonoBehaviour, IPlayerActions
 {
@@ -11,6 +15,12 @@ public class PlayerInput : MonoBehaviour, IPlayerActions
     {
         get { return s_Instance; }
     }
+
+    [SerializeField]
+    private AbilityRegistryScriptableObject AbilityRegistry;
+
+    private GrantedAbilitiesAuthoring GrantedAbilities;
+    private PlayerAttributeAuthoringScript AttributeAuthor;
 
     protected static PlayerInput s_Instance;
 
@@ -86,14 +96,20 @@ public class PlayerInput : MonoBehaviour, IPlayerActions
 
     const float k_AttackInputDuration = 0.03f;
 
+    private EntityManager dstManager;
+
     void Awake()
     {
         m_AttackInputWait = new WaitForSeconds(k_AttackInputDuration);
+        GrantedAbilities = GetComponent<GrantedAbilitiesAuthoring>();
+        AttributeAuthor = GetComponent<MyPlayerAttributeAuthoringScript>();
         CinemachineCore.GetInputAxis = GetAxisCustom;
         if (s_Instance == null)
             s_Instance = this;
         else if (s_Instance != this)
             throw new UnityException("There cannot be more than one PlayerInput script.  The instances are " + s_Instance.name + " and " + name + ".");
+
+        dstManager = World.DefaultGameObjectInjectionWorld.EntityManager;
     }
 
     private float GetAxisCustom(string axisName)
@@ -173,7 +189,29 @@ public class PlayerInput : MonoBehaviour, IPlayerActions
 
     public void OnAbility1(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        throw new NotImplementedException();
+        // Get ability spec matching granted ability [0]
+        var abilitySpec = AbilityRegistry.Get(GrantedAbilities.GrantedAbilities[0].Tag);
+
+        // Get the ability source and target
+        var source = AttributeAuthor.ActorAttributeEntity;
+        var target = AttributeAuthor.ActorAttributeEntity;
+
+        // Get brain from ability spec and copy to this instantiation
+        var specBrain = dstManager.GetSharedComponentData<AbilityBrainComponent.Component>(abilitySpec);
+
+        // Create the ability spec
+        var abilityEntity = dstManager.CreateEntity(
+            typeof(AbilityAttributeTargetSingleComponent),
+            typeof(AbilityAttributeSourceComponent),
+            typeof(AbilitySpecEntityComponent),
+            typeof(AbilityBrainComponent.Component)
+        );
+
+        dstManager.SetComponentData<AbilityAttributeTargetSingleComponent>(abilityEntity, target);
+        dstManager.SetComponentData<AbilityAttributeSourceComponent>(abilityEntity, target);
+        dstManager.SetComponentData<AbilitySpecEntityComponent>(abilityEntity, abilitySpec);
+        dstManager.SetSharedComponentData<AbilityBrainComponent.Component>(abilityEntity, specBrain);
+
     }
 
     public void OnAbility2(UnityEngine.InputSystem.InputAction.CallbackContext context)

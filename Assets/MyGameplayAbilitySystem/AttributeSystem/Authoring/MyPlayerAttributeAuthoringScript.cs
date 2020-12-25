@@ -12,6 +12,7 @@ public class MyPlayerAttributeAuthoringScript : PlayerAttributeAuthoringScript
     {
         var _attributeEntity = MyAttributeUpdateSystem.CreatePlayerEntity(dstManager, new MyAttributeValues() { BaseValue = defaultAttributes });
         dstManager.SetName(_attributeEntity, $"{this.gameObject.name} - Attributes");
+        this.ActorAttributeEntity = _attributeEntity;
         return _attributeEntity;
     }
 

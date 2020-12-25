@@ -58,6 +58,11 @@ namespace GameplayAbilitySystem.GameplayTags
             return (mask & other.Id) == Id;
         }
 
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+
     }
 
 }

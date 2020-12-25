@@ -109,7 +109,7 @@ namespace Gamekit3D
 
         public void UpdateAttributeEntity(EntityManager dstManager, Entity abilitySystemActor, Entity attributeEntity)
         {
-            dstManager.SetComponentData(abilitySystemActor, new PlayerAttributeAuthoringScript.Component() { ActorAttributeEntity = attributeEntity });
+            dstManager.SetComponentData(abilitySystemActor, new PlayerAttributeAuthoringScript.Component() { Value = attributeEntity });
         }
 
         public void ResetDamage()

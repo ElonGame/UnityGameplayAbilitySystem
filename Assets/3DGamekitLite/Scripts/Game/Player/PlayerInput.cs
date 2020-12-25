@@ -9,7 +9,7 @@ using GameplayAbilitySystem.GameplayTags;
 using GameplayAbilitySystem.AttributeSystem;
 using Unity.Entities;
 
-public class PlayerInput : MonoBehaviour, IPlayerActions
+public class PlayerInput : MonoBehaviour, IPlayerActions, IConvertGameObjectToEntity
 {
     public static PlayerInput Instance
     {
@@ -97,6 +97,7 @@ public class PlayerInput : MonoBehaviour, IPlayerActions
     const float k_AttackInputDuration = 0.03f;
 
     private EntityManager dstManager;
+    private Entity actorEntity;
 
     void Awake()
     {
@@ -190,7 +191,8 @@ public class PlayerInput : MonoBehaviour, IPlayerActions
     public void OnAbility1(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         // Get ability spec matching granted ability [0]
-        var abilitySpec = AbilityRegistry.Get(GrantedAbilities.GrantedAbilities[0].Tag);
+        GameplayTag abilityTag = GrantedAbilities.GrantedAbilities[0].Tag;
+        Entity abilitySpec = AbilityRegistry.Get(abilityTag);
 
         // Get the ability source and target
         var source = AttributeAuthor.ActorAttributeEntity;
@@ -203,6 +205,7 @@ public class PlayerInput : MonoBehaviour, IPlayerActions
         var abilityEntity = dstManager.CreateEntity(
             typeof(AbilityAttributeTargetSingleComponent),
             typeof(AbilityAttributeSourceComponent),
+            typeof(AbilityActorSourceComponent),
             typeof(AbilitySpecEntityComponent),
             typeof(AbilityBrainComponent.Component)
         );
@@ -211,6 +214,13 @@ public class PlayerInput : MonoBehaviour, IPlayerActions
         dstManager.SetComponentData<AbilityAttributeSourceComponent>(abilityEntity, target);
         dstManager.SetComponentData<AbilitySpecEntityComponent>(abilityEntity, abilitySpec);
         dstManager.SetSharedComponentData<AbilityBrainComponent.Component>(abilityEntity, specBrain);
+
+        var activeAbilityBuffer = dstManager.GetBuffer<ActorActiveAbilitiesAuthoring.Component>(actorEntity);
+        activeAbilityBuffer.Add(new ActorActiveAbilitiesAuthoring.Component()
+        {
+            EntityReference = abilityEntity,
+            Tag = abilityTag
+        });
 
     }
 
@@ -227,5 +237,10 @@ public class PlayerInput : MonoBehaviour, IPlayerActions
     public void OnAbility4(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         throw new NotImplementedException();
+    }
+
+    public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
+    {
+        actorEntity = entity;
     }
 }
